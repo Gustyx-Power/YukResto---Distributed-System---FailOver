@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>YukResto - Order</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="logo">YukResto</div>
+            <nav>
+                <span>Selamat datang, {{ username }}</span>
+                <a href="{{ url_for('chat') }}" class="btn">Chat dengan CS</a>
+                <a href="{{ url_for('logout') }}">Logout</a>
+            </nav>
+        </div>
+    </header>
+    <main class="container">
+        <h1>Menu YukResto</h1>
+        <div class="grid">
+            <!-- Stock akan diisi oleh JavaScript -->
+        </div>
+        <div class="order-section">
+            <h2>Pesan Sekarang</h2>
+            <form method="post" id="orderForm">
+                <select name="menu" id="menuSelect" required>
+                    <option value="">Pilih Menu</option>
+                    <!-- Opsi menu akan diisi oleh JavaScript -->
+                </select>
+                <input type="number" name="quantity" min="1" value="1" required>
+                <button type="submit" class="btn">Pesan</button>
+            </form>
+        </div>
+        <div class="status-section">
+            <h2>Status Pesanan</h2>
+            <div id="logMessages">
+                <!-- Pesanan akan diisi oleh JavaScript -->
+            </div>
+        </div>
+    </main>
+    <div class="popup" id="notificationPopup"></div>
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+</body>
+</html>

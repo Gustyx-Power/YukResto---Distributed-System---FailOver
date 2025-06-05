@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>YukResto - Chat</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            overflow: hidden;
+            font-family: 'Poppins', sans-serif;
+        }
+        header {
+            background-color: #ff6f61;
+            color: white;
+            padding: 10px 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .logo {
+            font-size: 24px;
+            font-weight: 600;
+        }
+        nav a, nav span {
+            color: white;
+            text-decoration: none;
+            margin-left: 20px;
+        }
+        main {
+            display: flex;
+            flex-direction: column;
+            height: calc(100vh - 60px); /* Kurangi tinggi header */
+            width: 100%;
+            padding: 0;
+            margin-top: 60px;
+        }
+        .chat-box {
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+            width: 100%;
+            background-color: #f5f5f5;
+        }
+        .chat-messages {
+            flex-grow: 1;
+            overflow-y: auto;
+            padding: 20px;
+        }
+        .message {
+            margin-bottom: 15px;
+            padding: 10px 15px;
+            border-radius: 15px;
+            max-width: 70%;
+            word-wrap: break-word;
+        }
+        .message.you {
+            background-color: #ff6f61;
+            color: white;
+            margin-left: auto;
+            border-bottom-right-radius: 0;
+        }
+        .message.cs {
+            background-color: #e0e0e0;
+            color: black;
+            margin-right: auto;
+            border-bottom-left-radius: 0;
+        }
+        .message-time {
+            font-size: 0.8em;
+            color: #999;
+            margin-top: 5px;
+            display: block;
+            text-align: right;
+        }
+        .chat-form {
+            padding: 10px;
+            border-top: 1px solid #ddd;
+            background-color: #fff;
+            display: flex;
+            gap: 10px;
+            width: 100%;
+            box-sizing: border-box;
+        }
+        .chat-form input {
+            flex-grow: 1;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 20px;
+            outline: none;
+        }
+        .chat-form button {
+            padding: 10px 20px;
+            background-color: #ff6f61;
+            color: white;
+            border: none;
+            border-radius: 20px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="logo">YukResto</div>
+            <nav>
+                <span>Selamat datang, {{ username }}</span>
+                <a href="{{ url_for('order') }}">Kembali ke Order</a>
+                <a href="{{ url_for('logout') }}">Logout</a>
+            </nav>
+        </div>
+    </header>
+    <main>
+        <div class="chat-box" id="chatBox">
+            <div class="chat-messages" id="chatMessages">
+                <!-- Pesan akan diisi oleh JavaScript -->
+            </div>
+            <form id="chatForm" class="chat-form">
+                <input type="text" id="chatInput" placeholder="Ketik pesan..." required>
+                <button type="submit">Kirim</button>
+            </form>
+        </div>
+    </main>
+    <div class="popup" id="notificationPopup"></div>
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+</body>
+</html>

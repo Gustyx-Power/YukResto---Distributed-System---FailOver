@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Worker 3 - Customer Service</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <style>
+        .whatsapp-layout {
+            display: flex;
+            height: 80vh;
+        }
+        .order-list {
+            width: 30%;
+            border-right: 1px solid #ddd;
+            overflow-y: auto;
+            padding: 10px;
+        }
+        .order-list-item {
+            padding: 10px;
+            border-bottom: 1px solid #ddd;
+            cursor: pointer;
+        }
+        .order-list-item:hover {
+            background-color: #f0f0f0;
+        }
+        .chat-area {
+            width: 70%;
+            display: flex;
+            flex-direction: column;
+        }
+        .chat-messages {
+            flex-grow: 1;
+            overflow-y: auto;
+            padding: 10px;
+        }
+        .chat-form {
+            padding: 10px;
+            border-top: 1px solid #ddd;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="logo">YukResto</div>
+            <nav>
+                <span>Worker 3 - Customer Service</span>
+            </nav>
+        </div>
+    </header>
+    <main class="container whatsapp-layout">
+        <div class="order-list" id="orderList">
+            <!-- Daftar pesanan akan diisi oleh JavaScript -->
+        </div>
+        <div class="chat-area" id="chatArea" style="display: none;">
+            <div class="chat-messages" id="chatMessages">
+                <!-- Pesan akan diisi oleh JavaScript -->
+            </div>
+            <form class="chat-form" id="chatForm">
+                <input type="text" id="chatInput" placeholder="Ketik pesan..." required>
+                <button type="submit">Kirim</button>
+            </form>
+        </div>
+    </main>
+    <div class="popup" id="notificationPopup"></div>
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+</body>
+</html>

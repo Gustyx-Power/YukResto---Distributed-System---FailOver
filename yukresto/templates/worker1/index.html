@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Worker 1 - Cabang A</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="logo">YukResto</div>
+            <nav>
+                <span>Worker 1 - Cabang A</span>
+            </nav>
+        </div>
+    </header>
+    <main class="container">
+        <h1>Stok Cabang A</h1>
+        <div class="grid">
+            <!-- Stok akan diisi oleh JavaScript -->
+        </div>
+        <h1>Daftar Pesanan</h1>
+        <div id="logMessages">
+            <!-- Pesanan akan diisi oleh JavaScript -->
+        </div>
+    </main>
+    <div class="popup" id="notificationPopup"></div>
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+</body>
+</html>
